@@ -1,0 +1,38 @@
+﻿@model RegisterViewModel
+
+<div class="register-form">
+    <h2 class="register-title">Create Your Account</h2>
+    <form asp-action="Index" asp-controller="Register" method="post" novalidate>
+        <div asp-validation-summary=ModelOnly class="text-danger"></div>
+
+        <div class="register-info mb-3">
+            <div class="register-field">
+                <label asp-for="FirstName" class="form-label">First Name</label>
+                <input asp-for="FirstName" class="form-control" onkeyup="validateText(event)" />
+                <span asp-validation-for="FirstName" class="small text-danger"></span>
+            </div>
+            <div class="register-field">
+                <label asp-for="LastName" class="form-label">Last Name</label>
+                <input asp-for="LastName" class="form-control" onkeyup="validateText(event)" />
+                <span asp-validation-for="LastName" class="small text-danger"></span>
+            </div>
+        </div>
+
+        <div class="register-info mb-3">
+            <div class="register-field">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" type="email" class="form-control" onkeyup="validateEmail(event)" />
+                <span asp-validation-for="Email" class="small text-danger"></span>
+            </div>
+            <div class="register-field">
+                <label asp-for="Password" class="form-label">Password</label>
+                <input asp-for="Password" type="password" class="form-control" onkeyup="validatePassword(event)" />
+                <span asp-validation-for="Password" class="small text-danger"></span>
+            </div>
+        </div>
+
+        <div class="d-grid mt-5">
+            <button type="submit" class="btn-theme">SUBMIT</button>
+        </div>
+    </form>
+</div>

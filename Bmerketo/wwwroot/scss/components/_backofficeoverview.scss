@@ -1,0 +1,50 @@
+﻿.backoffice-container {
+    padding-top: 120px;
+}
+
+.backoffice-buttons {
+    padding-top: 40px;
+    text-align: center;
+
+    @include md {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.register-btn {
+    display: block;
+    margin: 20px 30px;
+
+    @include md {
+        margin: 20px;
+    }
+}
+
+.user-list {
+    padding-top: 20px;
+    margin: 30px;
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid grey;
+    box-shadow: 1px 2px lightgrey;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.user-email {
+    flex: 1;
+}
+
+.edit-button {
+    margin-left: 10px;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+}

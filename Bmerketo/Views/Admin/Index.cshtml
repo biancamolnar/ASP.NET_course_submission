@@ -1,0 +1,38 @@
+﻿@inject UserAdminService userAdminService
+
+@{
+    ViewData["Title"] = "Backoffice";
+}
+
+<div class="backoffice-container">
+    <h1>Backoffice Overview</h1>
+    <div class="backoffice-buttons">
+        <a class="btn-theme register-btn" asp-controller="adminproducts" asp-action="new">Register a new product</a>
+        <a class="btn-theme register-btn" asp-controller="admin" asp-action="signupuser">Register a new user</a>
+    </div>
+
+    <div class="user-list">
+        <div class="centered">
+            <h1 style="padding-bottom: 20px;">Users</h1>
+        </div>
+        @foreach (var user in await userAdminService.GetUsersAsync())
+        {
+            <div class="mb-5 user-item">
+                <div class="user-email">@user.Email
+                    (
+                    @foreach (var roleName in user.RoleNames)
+                    {
+                        <span>@roleName</span>
+                    }
+                    )
+                </div>
+                
+                <div class="edit-button">
+                    <a asp-action="EditUser" asp-controller="Admin" asp-route-id="@user.Id" class="btn-theme">Edit</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<partial name="/Views/Partials/_Messages.cshtml" />

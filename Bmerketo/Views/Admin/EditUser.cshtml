@@ -1,0 +1,45 @@
+﻿@model AdminEditUserViewModel
+
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<div class="edit-user-container">
+<h2>Edit user</h2>
+<form method="post" class="mt-3">
+    <div>
+        <label asp-for="Id">Id:</label>
+        <input asp-for="Id" disabled class="form-control" />
+    </div>
+    <div class="card">
+    <div>
+        <p>Current User Role:</p>
+        @if (Model.Roles.Any())
+        {
+            foreach (var role in Model.Roles)
+            {
+                <p>@role</p>
+            }
+        }
+        else
+        {
+            <h5 class="card-title">None at the moment</h5>
+        }
+                <div>
+                    <label asp-for="SelectedRole">Change to:</label>
+                    <select asp-for="SelectedRole" asp-items="new SelectList(Model.AllRoles)">
+                        <option value="">Select Role</option>
+                    </select>
+                </div>
+                <div class="role-btn">
+                <button type="submit" class="btn-theme">Update</button>
+                <a asp-action="Index" class="btn-theme">Cancel</a>
+                </div>
+    </div>
+    
+</div>
+    
+
+    
+</form>
+</div>

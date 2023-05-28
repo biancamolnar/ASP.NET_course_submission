@@ -1,0 +1,44 @@
+﻿@inject SignInManager<UserEntity> signInManager
+@using Microsoft.AspNetCore.Identity
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <a class="logo-link" asp-action="Index" asp-controller="Home">
+                <img src="~/images/logo.svg" alt="">bmerketo
+            </a>
+        </div>
+        <nav id="menu" class="menu-links">
+            <a class="link" asp-controller="home" asp-action="index">HOME</a>
+            <a class="link" asp-controller="products" asp-action="index">PRODUCTS</a>
+            <a class="link" asp-controller="contact" asp-action="index">CONTACT</a>
+        </nav>
+        <nav class="menu-icons">
+            @if (signInManager.IsSignedIn(User))
+            {
+                if (User.IsInRole("Admin"))
+                {
+                    <a class="link" asp-controller="admin" asp-action="index">Backoffice</a>
+                }
+                else
+                {
+                    <a class="link" asp-controller="userprofile" asp-action="index"><i class="fa-solid fa-user"></i></a>
+
+
+                }
+
+                <a class="link" asp-controller="logout" asp-action="index">Logout</a>
+
+            }
+            else
+            {
+                <a class="link" asp-controller="login" asp-action="index">Login</a>
+            }
+        </nav>
+        <div class="toggle">
+            <button class="btn-toggle btn-outline-white" data-option="toggle" data-target="#menu">
+                <i id="icon" class="fa-regular fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,25 @@
+﻿.edit-user-container {
+    padding-top: 120px;
+    margin: 0px 10px;
+
+    @include lg {
+        margin: 0px 200px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    input {
+        margin-bottom: 20px;
+    }
+}
+
+.card {
+    padding: 20px;
+    text-align: center;
+}
+
+.role-btn {
+    margin-top: 20px;
+}

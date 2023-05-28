@@ -1,0 +1,26 @@
+﻿@model DetailsViewModel
+@inject ProductRepository productRepo
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+@{
+    var product = await productRepo.GetAsync(x => x.ArticleNumber == Model.ArticleNumber);
+}
+
+<div class="details-container">
+<a asp-action="Index"><img class="back-btn" src="~/images/back-button.png" /></a>
+<div class="details-item">
+@if(product != null) {
+<div class="detail-item-container">
+    <h1>@product.Title</h1>
+    <img id="details-image" src="~/images/tents/@product.ImageUrl" />
+    <div id="product-price">$ @product.Price</div>
+    <div class="details-info">@product.Ingress</div>
+    <div class="details-info">@product.Description</div>
+</div>
+} else {
+    <div>Ingen produkt hittades</div>
+}
+</div>
+</div>

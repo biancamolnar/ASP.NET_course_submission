@@ -1,0 +1,26 @@
+﻿@inject ProductRepository productRepo
+@{
+    ViewData["Title"] = "Product Overview";
+}
+
+<div class="product-overview-container">
+    <p><b>Product successfully registered!</b></p>
+    <div class="product-overview-btn">
+        <a asp-action="Index" asp-controller="Admin" class="btn-theme">Back to backoffice overview</a>
+        <a asp-action="New" class="btn-theme">Register new product</a>
+    </div>
+    <h4>All registered products</h4>
+
+    <div class="products-container">
+        @foreach (var product in await productRepo.GetAllAsync())
+        {
+            <div>
+                <div>
+                    <img src="~/images/tents/@product.ImageUrl" />
+                    <div>@product.Title</div>
+                    <div id="price">$ @product.Price</div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

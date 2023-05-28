@@ -1,0 +1,29 @@
+﻿@inject ProductRepository productRepo
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div style ="padding-top: 80px; padding-bottom: 100px;">
+    <img id="explore-img" src="~/images/exploreproducts.png" />
+    <div class="product-page-description">
+        <p><b>Embrace the great outdoors with our premium hiking tents. Designed for the adventurous souls who seek thrilling expeditions and memorable camping experiences, our collection offers a range of high-quality tents that are built to withstand the elements and provide utmost comfort in the wilderness.</b></p>
+        <p><b>Crafted with meticulous attention to detail, our hiking tents combine durability, functionality, and innovation. Every seam is sealed, every material is chosen with care, ensuring reliable protection against wind, rain, and unexpected weather conditions. With sturdy frames and robust construction, our tents offer stability and peace of mind, allowing you to focus on embracing the beauty of nature.</b></p>
+        <p><b>Step inside our hiking tents and experience a sanctuary in the wild. Thoughtfully designed interiors maximize space and provide a cozy retreat after a long day's hike. Ventilation systems keep the air flowing, preventing condensation and ensuring a fresh and comfortable sleeping environment. Rest assured, our tents prioritize your comfort, providing the perfect balance between lightweight portability and spaciousness.</b></p>
+    </div>
+
+    <div class="products-container">
+
+        @foreach(var product in await productRepo.GetAllAsync())
+        {
+            <div>
+                <div>
+                    <a asp-action="details" asp-route-id="@product.ArticleNumber">
+                    <img src="~/images/tents/@product.ImageUrl" />
+                    <div>@product.Title</div>
+                    </a>
+                    <div id="price">$ @product.Price</div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

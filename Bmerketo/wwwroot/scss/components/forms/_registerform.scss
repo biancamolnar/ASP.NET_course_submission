@@ -1,0 +1,35 @@
+﻿.register-form {
+    padding-top: 100px;
+    margin: 0px 10px;
+
+    form {
+        padding-top: 50px;
+
+        @include lg {
+            padding-top: 120px;
+            margin: 0px 100px;
+        }
+    }
+}
+
+.register-title {
+    text-align: center;
+}
+
+.register-info {
+    @include lg {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+
+.register-field {
+    width: 100%;
+    
+    @include lg {
+        width: 48%;
+        margin-bottom: 10px;
+    }
+}
+

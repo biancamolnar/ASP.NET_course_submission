@@ -1,0 +1,14 @@
+﻿@inject ContactFormRepository contactFormRepo;
+
+<h1>Messages</h1>
+
+<div class="messages-container">
+    @foreach (var message in await contactFormRepo.GetAllAsync())
+    {
+        <div class="message-item">
+            <div>@message.Email</div>
+            <div>@message.Name</div>
+            <div>@message.Message</div>
+        </div>
+    }
+</div>

@@ -1,0 +1,44 @@
+﻿.register-product-container {
+    padding-top: 100px;
+    margin: 0px 10px;
+    padding-bottom: 120px;
+
+    @include lg {
+        padding-top: 150px;
+        margin: 0px 100px;
+    }
+
+    h2 {
+        text-align: center;
+        padding-bottom: 20px;
+
+        @include lg {
+            padding-bottom: 50px;
+        }
+    }
+}
+
+.register-info {
+    @include lg {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+
+.register-field {
+    width: 100%;
+
+    @include lg {
+        width: 48%;
+        margin-bottom: 10px;
+    }
+}
+
+.form-check {
+    margin: 30px 0px;
+
+    input {
+        margin-right: 10px;
+    }
+}
